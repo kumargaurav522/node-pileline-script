@@ -1,7 +1,7 @@
 FROM node
 
 RUN apt-get update && apt-get upgrade -y \
-    && apt-get clean
+    && apt-get clean && apt-get install curl -y
 
 RUN mkdir /app
 WORKDIR /app
