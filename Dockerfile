@@ -17,7 +17,7 @@ COPY . .
 
 #HEALTHCHECK --interval=5s --timeout=5s 
 #CMD curl -f http://0.0.0.0:8081 || exit 1
-EXPOSE 8081
+EXPOSE 8080
 #ENTRYPOINT ["./entrypoint.sh"]
 CMD [ "node", "server.js" ]
 #CMD curl -i http://0.0.0.0:8081 
