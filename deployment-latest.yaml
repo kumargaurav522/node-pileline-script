@@ -5,10 +5,10 @@ metadata:
 spec:
   selector:
     app: web-nodejs
-    app1: web-nodejs-latest
   type: NodePort  
   ports:
     - protocol: TCP
+      nodePort: 32000
       port: 8080
       targetPort: 8080
 ---
@@ -17,16 +17,16 @@ kind: Deployment
 metadata:
   name: web-nodejs-deployment-latest
   labels:
-    app1: web-nodejs-latest
+    app: web-nodejs
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app1: web-nodejs-latest
+      app: web-nodejs
   template:
     metadata:
       labels:
-        app1: web-nodejs-latest
+        app: web-nodejs
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
