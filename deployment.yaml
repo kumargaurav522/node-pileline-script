@@ -19,6 +19,7 @@ metadata:
     app: web-nodejs
 spec:
   replicas: 2
+  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: web-nodejs
