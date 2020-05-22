@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-nodejs
+spec:
+  selector:
+    app: web-nodejs
+    app: web-nodejs-latest
+  type: NodePort  
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-nodejs-deployment-latest
+  labels:
+    app: web-nodejs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-nodejs-latest
+  template:
+    metadata:
+      labels:
+        app: web-nodejs-latest
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: nodejs-web
+        image: kumargaurav522/docker-test:117
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
