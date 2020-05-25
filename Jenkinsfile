@@ -8,9 +8,9 @@ node('jenkins-slave') {
                 echo '> Checking out the source control ...'
                 checkout scm
         }
-	stage('Git') {
-		git 'https://github.com/kumargaurav522/node-pileline-script.git'
-	}
+#	stage('Git') {
+#		git 'https://github.com/kumargaurav522/node-pileline-script.git'
+#	}
 	
 	stage('Building image') {
         def buildName = registry + ":$BUILD_NUMBER"
