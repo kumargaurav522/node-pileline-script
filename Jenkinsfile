@@ -55,7 +55,7 @@ node('jenkins-slave') {
         container('kubectl') {
          // sh 'kubectl -n group1 --dry-run=server apply -f $WORKSPACE/deployment.yaml'
         sh ('sed -i -e "s|image: .*|image: kumargaurav522/docker-test:${BUILD_NUMBER}|g" $WORKSPACE/deployment-latest.yaml')
-        sh ('kubectl -n product apply -f $WORKSPACE/deployment-latest.yaml')
+        sh ('kubectl -n demo apply -f $WORKSPACE/deployment-latest.yaml')
          
          }
         }
