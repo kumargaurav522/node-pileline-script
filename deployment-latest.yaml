@@ -33,6 +33,5 @@ spec:
       containers:
       - name: nodejs-web
         image: kumargaurav522/docker-test:117
-        imagePullPolicy: Always
         ports:
         - containerPort: 8080
