@@ -66,7 +66,7 @@ ode('jenkins-slave') {
     currentBuild.result = 'FAILURE'
    }
    finally {
-    mail to: 'ranjan.nanda@cheersin.com',
+    mail to: 'xyz.gmail.com',
       subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
       body: "${env.BUILD_URL} has result ${currentBuild.result}"
   }
