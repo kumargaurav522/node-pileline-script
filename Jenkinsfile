@@ -1,4 +1,4 @@
-ode('jenkins-slave') {
+node('jenkins-slave') {
         try {
     def newApp
     def registry = 'kumargaurav522/docker-test'
